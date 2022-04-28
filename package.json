@@ -2,7 +2,7 @@
   "name": "mispartes-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mispartituras.github.io/mispartituras",
+  "homepage": "https://mispartituras.github.io/mispartituras/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",

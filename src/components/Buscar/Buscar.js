@@ -1,7 +1,7 @@
 import "./Buscar.scss";
 import React from "react";
 import Instrument from "./Instrument.js";
-import Filter from "./Filter.js";
+import SearchResults from "./SearchResults.js";
 import {
   flute,
   bassoon,
@@ -25,7 +25,7 @@ export default function Buscar() {
 
   function pageSelect(page, instrument) {
     let urlOption = "";
-    page === "filter"
+    page === "searchResults"
       ? (urlOption = instrument.toLowerCase())
       : (urlOption = "");
     setDisplay(page);
@@ -67,8 +67,8 @@ export default function Buscar() {
           />
         </div>
       )}
-      {display === "filter" && (
-        <Filter onClick={pageSelect} instrument={instrument} />
+      {display === "searchResults" && (
+        <SearchResults onClick={pageSelect} instrument={instrument} />
       )}
     </section>
   );
