@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { GrClose } from "react-icons/gr";
+import CloseButton from "../default/CloseButton";
 import "./Part.scss";
 
 function Part(props) {
@@ -14,9 +14,7 @@ function Part(props) {
     <div className="part-section">
       <div className="overlay"></div>
       <div className="part-wrapper">
-        <div className="part-close-button-wrapper" onClick={closePart}>
-          <GrClose className="part-close-button" />
-        </div>
+        <CloseButton onClick={closePart} className={"part-close-button"} />
         <div className="part-information">
           <h2 className="part-name">{props.partInfo[1]}</h2>
           <h3 className="part-composer-name">{props.partInfo[2]}</h3>

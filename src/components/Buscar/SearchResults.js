@@ -3,14 +3,22 @@ import React from "react";
 import SearchItem from "./SearchItem.js";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Part from "./Part.js";
+import Filter from "./Filter";
 
 function SearchResults(props) {
+  const initialFilter = {
+    search: "",
+    nivel: "",
+    estilo: "",
+    curso: "",
+  };
   const [apiData, setApiData] = React.useState([]);
   const [display, setDisplay] = React.useState({
     partOpen: false,
+    filterOpen: false,
     partInfo: [],
+    filterInfo: initialFilter,
   });
-
   //Fetch apiData from Google Sheets API
   React.useEffect(() => {
     const fetchapiData = async () => {
@@ -32,7 +40,24 @@ function SearchResults(props) {
     }));
   }
 
-  const partsList = apiData.map((item) => {
+  function setFilterData(event) {
+    setDisplay((state) => ({
+      ...state,
+      filterInfo: {
+        ...state.filterInfo,
+        [event.target.name]: event.target.value,
+      },
+    }));
+  }
+
+  function openFilter() {
+    setDisplay((state) => ({
+      ...state,
+      filterOpen: true,
+    }));
+  }
+
+  /*   const partsList = apiData.map((item) => {
     return (
       <SearchItem
         key={item[0]}
@@ -43,23 +68,47 @@ function SearchResults(props) {
         onClick={getPart}
       />
     );
-  });
+  }); */
+
+  const partsList = apiData
+    .filter((item) => item[4] === display.filterInfo.nivel)
+    .map((item) => {
+      return (
+        <SearchItem
+          key={item[0]}
+          id={item[0]}
+          piece={item[1]}
+          composer={item[2]}
+          nivel={item[4]}
+          onClick={getPart}
+        />
+      );
+    });
 
   return (
-    <div className="filter">
-      <div className="filter-button-wrapper">
+    <div className="search-results">
+      <div className="search-results-button-wrapper">
         <button onClick={() => props.onClick("instSelect")}>
           <span>
             <AiOutlineArrowLeft />
           </span>
           Instrumentos
         </button>
-        <button className="filtro-button">Filtro</button>
+        <button className="filtro-button" onClick={openFilter}>
+          Filtro
+        </button>
       </div>
       {/* Lists parts on main page */}
-      <div className="filter-wrapper">{partsList}</div>
+      <div className="search-results-wrapper">{partsList}</div>
       {display.partOpen && (
         <Part setDisplay={setDisplay} partInfo={display.partInfo} />
+      )}
+      {display.filterOpen && (
+        <Filter
+          onChange={setFilterData}
+          stateData={display.filterInfo}
+          setDisplay={setDisplay}
+        />
       )}
     </div>
   );

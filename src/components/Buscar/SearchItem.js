@@ -25,9 +25,12 @@ function SearchItem(props) {
   }
 
   return (
-    <div className="filter-item" onClick={() => props.onClick(props.id)}>
-      <p className="filter-piece">{props.piece}</p>
-      <p className="filter-composer">{props.composer}</p>
+    <div
+      className="search-results-item"
+      onClick={() => props.onClick(props.id)}
+    >
+      <p className="search-results-piece">{props.piece}</p>
+      <p className="search-results-composer">{props.composer}</p>
       <img src={levelImage} />
     </div>
   );
