@@ -29,12 +29,6 @@ function Filter(props) {
     props.setDisplay((state) => ({
       ...state,
       filterOpen: false,
-      filterInfo: {
-        search: "",
-        nivel: "",
-        estilo: "",
-        curso: "",
-      },
     }));
   }
 
@@ -69,10 +63,10 @@ function Filter(props) {
               value={props.stateData.estilo}
             >
               <option value="">-- Estilo --</option>
-              <option value="barroco">Barroco</option>
-              <option value="classicismo">Classicismo</option>
-              <option value="romanticismo">Romanticismo</option>
-              <option value="contemporanea">Contemporánea</option>
+              <option value="Barroco">Barroco</option>
+              <option value="Clasicismo">Classicismo</option>
+              <option value="Romanticismo">Romanticismo</option>
+              <option value="Contemporanea">Contemporánea</option>
             </select>
             <select
               name="curso"
@@ -80,16 +74,16 @@ function Filter(props) {
               value={props.stateData.curso}
             >
               <option value="">-- Curso --</option>
-              <option value="1">1º de Enseñanzas Básicos</option>
-              <option value="2">2º de Enseñanzas Básicos</option>
-              <option value="3">3º de Enseñanzas Básicos</option>
-              <option value="4">4º de Enseñanzas Básicos</option>
-              <option value="5">1º de Enseñanzas Profesionales</option>
-              <option value="6">2º de Enseñanzas Profesionales</option>
-              <option value="7">3º de Enseñanzas Profesionales</option>
-              <option value="8">4º de Enseñanzas Profesionales</option>
-              <option value="9">5º de Enseñanzas Profesionales</option>
-              <option value="10">6º de Enseñanzas Profesionales</option>
+              <option value="1º de Enseñanzas Básicos">1º de Enseñanzas Básicos</option>
+              <option value="2º de Enseñanzas Básicos">2º de Enseñanzas Básicos</option>
+              <option value="3º de Enseñanzas Básicos">3º de Enseñanzas Básicos</option>
+              <option value="4º de Enseñanzas Básicos">4º de Enseñanzas Básicos</option>
+              <option value="1º de Enseñanzas Profesionales">1º de Enseñanzas Profesionales</option>
+              <option value="2º de Enseñanzas Profesionales">2º de Enseñanzas Profesionales</option>
+              <option value="3º de Enseñanzas Profesionales">3º de Enseñanzas Profesionales</option>
+              <option value="4º de Enseñanzas Profesionales">4º de Enseñanzas Profesionales</option>
+              <option value="5º de Enseñanzas Profesionales">5º de Enseñanzas Profesionales</option>
+              <option value="6º de Enseñanzas Profesionales">6º de Enseñanzas Profesionales</option>
             </select>
           </fieldset>
           <div className="filter-button-wrapper">
