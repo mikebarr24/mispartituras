@@ -29,7 +29,7 @@ function SearchResults(props) {
       setApiData(processedApiData.values.slice(1));
     };
     fetchapiData();
-  }, []);
+  }, [props.instrument]);
 
   function getPart(partId) {
     const selectedPart = apiData.filter((item) => item[0] === partId);
