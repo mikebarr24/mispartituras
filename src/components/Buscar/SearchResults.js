@@ -57,13 +57,21 @@ function SearchResults(props) {
     }));
   }
 
-/*   const partsList = apiData
-    .map((item) => {
-      const filterArr = Object.values(display.filterInfo);
-
-      return item
-    })
-    .map((item) => {
+  function DisplayResults(props) {
+    let localData = apiData;
+    if (display.filterInfo.search !== ""){
+      localData = localData.filter(item => item[1].toLowerCase().includes(display.filterInfo.search.toLowerCase()) || item[2].toLowerCase().includes(display.filterInfo.search.toLowerCase()))
+    } 
+    if (display.filterInfo.nivel !== ""){
+      localData = localData.filter(item => item[4] === display.filterInfo.nivel)
+    } 
+    if (display.filterInfo.estilo !== "") {
+      localData = localData.filter(item => item[5] === display.filterInfo.estilo)
+    }
+    if (display.filterInfo.curso !== "") {
+      localData = localData.filter(item => item[6] === display.filterInfo.curso)
+    }
+    const partInfo = localData.map(item => {
       return (
         <SearchItem
           key={item[0]}
@@ -74,36 +82,12 @@ function SearchResults(props) {
           onClick={getPart}
         />
       );
-    }); */
-    function DisplayResults(props) {
-      let localData = apiData;
-      if (display.filterInfo.search !== ""){
-        localData = localData.filter(item => item[1].toLowerCase().includes(display.filterInfo.search.toLowerCase()) || item[2].toLowerCase().includes(display.filterInfo.search.toLowerCase()))
-      } 
-      if (display.filterInfo.nivel !== ""){
-        localData = localData.filter(item => item[4] === display.filterInfo.nivel)
-      } 
-      if (display.filterInfo.estilo !== "") {
-        localData = localData.filter(item => item[5] === display.filterInfo.estilo)
-      }
-      if (display.filterInfo.curso !== "") {
-        localData = localData.filter(item => item[6] === display.filterInfo.curso)
-      }
-      const partInfo = localData.map(item => {
-        return (
-          <SearchItem
-            key={item[0]}
-            id={item[0]}
-            piece={item[1]}
-            composer={item[2]}
-            nivel={item[4]}
-            onClick={getPart}
-          />
-        );
-      })
-      return partInfo
-    }
+    })
+    return partInfo
+  }
 
+  const filterNum = Object.values(display.filterInfo).filter(item => item !== "").length;
+  
   return (
     <div className="search-results">
       <div className="search-results-button-wrapper">
@@ -114,7 +98,7 @@ function SearchResults(props) {
           Instrumentos
         </button>
         <button className="filtro-button" onClick={openFilter}>
-          Filtro
+          Filtro {filterNum > 0 && `(${filterNum})`}
         </button>
       </div>
       {/* Lists parts on main page */}
