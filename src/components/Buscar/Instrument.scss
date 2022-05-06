@@ -2,4 +2,41 @@
 
 .instrument-wrapper {
   margin-top: $nav-height;
+  .filter-results-wrapper{
+    background-color: $white-color;
+    color: $primary-color;
+    height: 60vh;
+    padding: 0rem;
+    border-radius: 10px;
+    border: 3px solid $logo-color;
+    overflow-y: scroll;
+    .results-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 5px;
+      border-bottom: 1px solid gray;
+      border-left: 1px solid gray;
+      border-right: 1px solid gray;
+      &:first-of-type{
+        border-top: 1px solid gray;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      &:last-of-type{
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .results-composer-name{
+        width: 50%;
+        font-weight: 600;
+      }
+      .results-piece-name{
+        width: 40%;
+      }
+      .level-image{
+        height: 20px;
+      }
+    }
+  }
 }
