@@ -1,13 +1,11 @@
 import "./Instrument.scss";
+import { useParams } from "react-router-dom";
 
-function Instrument(props) {
+function Instrument() {
+  const instrumentName = useParams().instrument;
   return (
-    <div
-      className="instrument-selector"
-      onClick={() => props.onClick("searchResults", props.instrument)}
-    >
-      <img src={props.image} />
-      <h3>{props.instrument}</h3>
+    <div className="instrument-wrapper">
+      <h1>{instrumentName}</h1>
     </div>
   );
 }

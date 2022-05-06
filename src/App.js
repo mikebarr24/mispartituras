@@ -4,6 +4,7 @@ import Home from "./components/Home/Home.js";
 import Nosotros from "./components/Nosotros/Nosotros.js";
 import Footer from "./components/Footer/Footer.js";
 import Buscar from "./components/Buscar/Buscar.js";
+import Instrument from "./components/Buscar/Instrument.js";
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/mispartituras" element={<Home />} />
         <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/buscar" element={<Buscar />} />
+        <Route path="/buscar/:instrument" element={<Instrument />} />
       </Routes>
       <Footer />
     </div>
