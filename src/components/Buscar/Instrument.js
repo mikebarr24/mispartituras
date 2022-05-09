@@ -1,9 +1,12 @@
 import "./Instrument.scss";
 import React from "react";
 import levelColors from "../../levelsExport.js";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import Button from "../default/Button.js";
+import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
 
 function Instrument() {
+  const navigate = useNavigate();
   const instrumentName = useParams().instrument;
   const [levels] = levelColors();
   const [apiData, setApiData] = React.useState([]);
@@ -31,9 +34,25 @@ function Instrument() {
     );
   });
 
+  //click functions
+  function clickHandle() {
+    navigate("/buscar");
+  }
+
   return (
     <div className="instrument-wrapper container">
-      <h1>{instrumentName}</h1>
+      <h1>
+        {instrumentName.charAt(0).toUpperCase() + instrumentName.slice(1)}
+      </h1>
+      <div className="search-button-wrapper">
+        <Button
+          name={"Instrumentos"}
+          className="back-button"
+          arrow={<BackArrow />}
+          onClick={clickHandle}
+        />
+        <Button name={"Filtro"} className="filter-button" />
+      </div>
       <div className="filter-results-wrapper">{apiList}</div>
     </div>
   );

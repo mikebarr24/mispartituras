@@ -2,6 +2,14 @@
 
 .instrument-wrapper {
   margin-top: $nav-height;
+  .search-button-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+    .filter-button, .back-button {
+      width: 47%;
+    }
+  }
   .filter-results-wrapper{
     background-color: $white-color;
     color: $primary-color;
@@ -30,6 +38,7 @@
       .results-composer-name{
         width: 50%;
         font-weight: 600;
+        margin-right: 5px;
       }
       .results-piece-name{
         width: 40%;
