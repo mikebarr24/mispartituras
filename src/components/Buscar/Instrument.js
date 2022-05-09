@@ -3,14 +3,23 @@ import React from "react";
 import levelColors from "../../levelsExport.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "../default/Button.js";
+import Filter from "./Filter";
 import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
 
 function Instrument() {
+  let filterInit = {
+    buscar: "",
+    nivel: "",
+    estilo: "",
+    curso: "",
+  };
+
+  const [apiData, setApiData] = React.useState([]);
+  const [filterOpen, setFilterOpen] = React.useState(false);
+  const [filterValues, setFilterValues] = React.useState(filterInit);
   const navigate = useNavigate();
   const instrumentName = useParams().instrument;
   const [levels] = levelColors();
-  const [apiData, setApiData] = React.useState([]);
-
   //Fetch apiData from Google Sheets API
   React.useEffect(() => {
     const fetchApiData = async () => {
@@ -24,6 +33,9 @@ function Instrument() {
   }, []);
 
   //map through item in api array
+  const numFilters = Object.values(filterValues).filter(
+    (item) => item !== ""
+  ).length;
   const apiList = apiData.map((item) => {
     return (
       <div key={item[0]} className="results-item">
@@ -39,6 +51,16 @@ function Instrument() {
     navigate("/buscar");
   }
 
+  function changeFilter(event) {
+    if (event.target.name === "Reset") {
+      setFilterValues(filterInit);
+    }
+    setFilterValues((state) => ({
+      ...state,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
   return (
     <div className="instrument-wrapper container">
       <h1>
@@ -48,12 +70,24 @@ function Instrument() {
         <Button
           name={"Instrumentos"}
           className="back-button"
-          arrow={<BackArrow />}
+          before={<BackArrow />}
           onClick={clickHandle}
         />
-        <Button name={"Filtro"} className="filter-button" />
+        <Button
+          name="Filtro"
+          className="filter-button"
+          onClick={() => setFilterOpen((state) => !state)}
+          after={numFilters > 0 && numFilters}
+        />
       </div>
       <div className="filter-results-wrapper">{apiList}</div>
+      {filterOpen === true && (
+        <Filter
+          onClick={setFilterOpen}
+          onChange={changeFilter}
+          values={filterValues}
+        />
+      )}
     </div>
   );
 }

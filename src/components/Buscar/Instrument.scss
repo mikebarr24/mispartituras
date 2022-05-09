@@ -4,10 +4,11 @@
   margin-top: $nav-height;
   .search-button-wrapper{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0.5rem 0;
     .filter-button, .back-button {
       width: 47%;
+      font-size: 1rem;
     }
   }
   .filter-results-wrapper{

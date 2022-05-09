@@ -1,0 +1,40 @@
+@import "../../config";
+
+.filter-wrapper{
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white-color;
+  color: $primary-color;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 90%;
+  .filter-close-button {
+    position: fixed;
+    right: -10px;
+    top: -10px;
+  }
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    input, select {
+      margin: 0.5rem 0;
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 0.3rem;
+      font-size: 1.3rem;
+      color: $primary-color;
+    }
+  }
+  .filter-button-wrapper{
+    display: flex;
+    justify-content: end;
+    Button {
+      width: 40%;
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
+  }
+}

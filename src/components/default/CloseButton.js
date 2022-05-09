@@ -17,9 +17,9 @@ function CloseButton(props) {
     borderRadius: "50px",
   };
   return (
-    <div style={styles} onClick={props.onClick} className={props.className}>
+    <button style={styles} onClick={props.onClick} className={props.className}>
       <GrClose />
-    </div>
+    </button>
   );
 }
 

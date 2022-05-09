@@ -33,6 +33,9 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Montserrat', sans-serif;
+  & .no-scroll {
+    overflow-y: hidden;
+  }
 }
 
 a {
