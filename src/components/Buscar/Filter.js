@@ -17,12 +17,22 @@ function Filter(props) {
       <div
         style={STYLES_OVERLAY}
         className="overlay"
-        onClick={() => props.onClick((state) => !state)}
+        onClick={() =>
+          props.onClick((state) => ({
+            ...state,
+            filter: !state.filter,
+          }))
+        }
       ></div>
       <div className="filter-wrapper">
         <CloseButton
           className="filter-close-button"
-          onClick={() => props.onClick((state) => !state)}
+          onClick={() =>
+            props.onClick((state) => ({
+              ...state,
+              filter: !state.filter,
+            }))
+          }
         />
         <h1>Filtro</h1>
         <div className="filter-options">
@@ -97,7 +107,12 @@ function Filter(props) {
           <Button
             name="Filter"
             shade="dark"
-            onClick={() => props.onClick((state) => !state)}
+            onClick={() =>
+              props.onClick((state) => ({
+                ...state,
+                filter: !state.filter,
+              }))
+            }
           />
         </div>
       </div>

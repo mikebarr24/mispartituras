@@ -15,7 +15,7 @@ function Instrument() {
   };
 
   const [apiData, setApiData] = React.useState([]);
-  const [filterOpen, setFilterOpen] = React.useState(false);
+  const [display, setDisplay] = React.useState({ filter: false, part: false });
   const [filterValues, setFilterValues] = React.useState(filterInit);
   const navigate = useNavigate();
   const instrumentName = useParams().instrument;
@@ -118,14 +118,19 @@ function Instrument() {
         <Button
           name="Filtro"
           className="filter-button"
-          onClick={() => setFilterOpen((state) => !state)}
+          onClick={() =>
+            setDisplay((state) => ({
+              ...state,
+              filter: !state.filter,
+            }))
+          }
           after={numFilters > 0 && numFilters}
         />
       </div>
       <div className="filter-results-wrapper">{DisplayResults()}</div>
-      {filterOpen === true && (
+      {display.filter === true && (
         <Filter
-          onClick={setFilterOpen}
+          onClick={setDisplay}
           onChange={changeFilter}
           values={filterValues}
         />
