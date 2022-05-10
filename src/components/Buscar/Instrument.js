@@ -30,13 +30,25 @@ function Instrument() {
       setApiData(processedApiData.values.slice(1));
     };
     fetchApiData();
-  }, []);
+  }, [instrumentName]);
 
   //map through item in api array
   const numFilters = Object.values(filterValues).filter(
     (item) => item !== ""
   ).length;
-  const apiList = apiData.map((item) => {
+
+  /*   let localData = apiData;
+  if (filterValues.buscar !== "") {
+    localData = localData.filter(
+      (item) =>
+        item[1].toLowerCase().includes(filterValues.buscar.toLowerCase()) ||
+        item[2].toLowerCase().includes(filterValues.buscar.toLowerCase())
+    );
+  }
+  if (filterValues.buscar.nivel !== "") {
+    localData = localData.filter((item) => item[4] === filterValues.nivel);
+  }
+  let output = localData.map((item) => {
     return (
       <div key={item[0]} className="results-item">
         <p className="results-composer-name">{item[1]}</p>
@@ -44,7 +56,37 @@ function Instrument() {
         <img src={levels[item[4]]} alt="" className="level-image" />
       </div>
     );
-  });
+  }); */
+
+  function DisplayResults() {
+    let localData = apiData;
+    if (filterValues.buscar !== "") {
+      localData = localData.filter(
+        (item) =>
+          item[1].toLowerCase().includes(filterValues.buscar.toLowerCase()) ||
+          item[2].toLowerCase().includes(filterValues.buscar.toLowerCase())
+      );
+    }
+    if (filterValues.nivel !== "") {
+      localData = localData.filter((item) => item[4] === filterValues.nivel);
+    }
+    if (filterValues.estilo !== "") {
+      localData = localData.filter((item) => item[5] === filterValues.estilo);
+    }
+    if (filterValues.curso !== "") {
+      localData = localData.filter((item) => item[6] === filterValues.curso);
+    }
+    const partInfo = localData.map((item) => {
+      return (
+        <div key={item[0]} className="results-item">
+          <p className="results-composer-name">{item[1]}</p>
+          <p className="results-piece-name">{item[2]}</p>
+          <img src={levels[item[4]]} alt="" className="level-image" />
+        </div>
+      );
+    });
+    return partInfo;
+  }
 
   //click functions
   function clickHandle() {
@@ -80,7 +122,7 @@ function Instrument() {
           after={numFilters > 0 && numFilters}
         />
       </div>
-      <div className="filter-results-wrapper">{apiList}</div>
+      <div className="filter-results-wrapper">{DisplayResults()}</div>
       {filterOpen === true && (
         <Filter
           onClick={setFilterOpen}
