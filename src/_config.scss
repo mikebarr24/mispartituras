@@ -13,8 +13,6 @@ $nav-height: 55px;
 /* Base */
 html {
   font-size: 1rem;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 * {
@@ -33,9 +31,6 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Montserrat', sans-serif;
-  & .no-scroll {
-    overflow-y: hidden;
-  }
 }
 
 a {

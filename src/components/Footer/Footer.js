@@ -8,7 +8,7 @@ export default function Footer() {
       <h2 className="footer-logo">MisPartituras</h2>
       <ul className="footer-nav">
         <li>
-          <Link to="/">Inicio</Link>
+          <Link to="/mispartituras">Inicio</Link>
         </li>
         <li>
           <Link to="/nosotros">Nosotros</Link>

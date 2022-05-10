@@ -15,10 +15,6 @@ export default function Home() {
       <Link to="/buscar">
         <button className="buscar-button">Buscar Partituras</button>
       </Link>
-      <div className="recent-parts">
-        <RecentPart />
-        <RecentPart />
-      </div>
     </section>
   );
 }

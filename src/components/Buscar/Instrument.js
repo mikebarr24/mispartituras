@@ -93,6 +93,12 @@ function Instrument() {
     setPart(selectedPart);
   }
 
+  //stops scroll with modal
+  if (display.part === true) {
+    document.body.style.overflowY = "hidden";
+  } else {
+    document.body.style.overflowY = "scroll";
+  }
   return (
     <div className="instrument-wrapper container">
       <h1>
