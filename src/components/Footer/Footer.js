@@ -1,6 +1,6 @@
 import "./Footer.scss";
 import { Link } from "react-router-dom";
-import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
+import SocialIcons from "../default/SocialIcons";
 
 export default function Footer() {
   return (
@@ -23,18 +23,8 @@ export default function Footer() {
       <div className="footer-contact">
         <h3 className="footer-contact-title">Contacto</h3>
         <p>Email: info@mispartituras.com</p>
-        <div className="footer-social">
-          <a href="/" className="footer-social-link">
-            <FaTwitter />
-          </a>
-          <a href="/" className="footer-social-link">
-            <FaInstagram />
-          </a>
-          <a href="/" className="footer-social-link">
-            <FaFacebook />
-          </a>
-        </div>
       </div>
+      <SocialIcons color="#014652" size="2rem" className="footer-social" />
       <p className="copyright">
         © All Rights Reserved MisPartituras {new Date().getFullYear()}
       </p>

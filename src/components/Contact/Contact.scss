@@ -1,0 +1,31 @@
+@import '../../config';
+
+#contact{
+  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 2rem;
+  }
+  .contact-info{
+    margin-bottom: 1rem;
+  }
+  a{
+    display: inline-block;
+  }
+  .email{
+    text-align: center;
+    background-color: $white-color;
+    color: $primary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  .contact-social {
+    display: flex;
+    justify-content: center;
+    *{
+      margin: 0 0.5rem;
+    }
+  }
+}
