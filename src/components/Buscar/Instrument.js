@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Button from "../default/Button.js";
 import Filter from "./Filter";
 import { BsFillArrowLeftCircleFill as BackArrow } from "react-icons/bs";
+import Part from "./Part";
 
 function Instrument() {
   let filterInit = {
@@ -17,6 +18,7 @@ function Instrument() {
   const [apiData, setApiData] = React.useState([]);
   const [display, setDisplay] = React.useState({ filter: false, part: false });
   const [filterValues, setFilterValues] = React.useState(filterInit);
+  const [part, setPart] = React.useState([]);
   const navigate = useNavigate();
   const instrumentName = useParams().instrument;
   const [levels] = levelColors();
@@ -36,27 +38,6 @@ function Instrument() {
   const numFilters = Object.values(filterValues).filter(
     (item) => item !== ""
   ).length;
-
-  /*   let localData = apiData;
-  if (filterValues.buscar !== "") {
-    localData = localData.filter(
-      (item) =>
-        item[1].toLowerCase().includes(filterValues.buscar.toLowerCase()) ||
-        item[2].toLowerCase().includes(filterValues.buscar.toLowerCase())
-    );
-  }
-  if (filterValues.buscar.nivel !== "") {
-    localData = localData.filter((item) => item[4] === filterValues.nivel);
-  }
-  let output = localData.map((item) => {
-    return (
-      <div key={item[0]} className="results-item">
-        <p className="results-composer-name">{item[1]}</p>
-        <p className="results-piece-name">{item[2]}</p>
-        <img src={levels[item[4]]} alt="" className="level-image" />
-      </div>
-    );
-  }); */
 
   function DisplayResults() {
     let localData = apiData;
@@ -78,7 +59,11 @@ function Instrument() {
     }
     const partInfo = localData.map((item) => {
       return (
-        <div key={item[0]} className="results-item">
+        <div
+          key={item[0]}
+          className="results-item"
+          onClick={() => partClick(item[0])}
+        >
           <p className="results-composer-name">{item[1]}</p>
           <p className="results-piece-name">{item[2]}</p>
           <img src={levels[item[4]]} alt="" className="level-image" />
@@ -89,10 +74,6 @@ function Instrument() {
   }
 
   //click functions
-  function clickHandle() {
-    navigate("/buscar");
-  }
-
   function changeFilter(event) {
     if (event.target.name === "Reset") {
       setFilterValues(filterInit);
@@ -101,6 +82,15 @@ function Instrument() {
       ...state,
       [event.target.name]: event.target.value,
     }));
+  }
+
+  function partClick(part) {
+    setDisplay((state) => ({
+      ...state,
+      part: !state.part,
+    }));
+    const selectedPart = apiData.find((item) => item[0] === part);
+    setPart(selectedPart);
   }
 
   return (
@@ -113,7 +103,7 @@ function Instrument() {
           name={"Instrumentos"}
           className="back-button"
           before={<BackArrow />}
-          onClick={clickHandle}
+          onClick={() => navigate("/buscar")}
         />
         <Button
           name="Filtro"
@@ -133,6 +123,17 @@ function Instrument() {
           onClick={setDisplay}
           onChange={changeFilter}
           values={filterValues}
+        />
+      )}
+      {display.part === true && (
+        <Part
+          partInfo={part}
+          closeButton={() =>
+            setDisplay((state) => ({
+              ...state,
+              part: !state.part,
+            }))
+          }
         />
       )}
     </div>

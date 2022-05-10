@@ -59,7 +59,7 @@ function Filter(props) {
             name="estilo"
           >
             <option value="">-- Estilo --</option>
-            <option value="Barrocco">Barrocco</option>
+            <option value="Barroco">Barroco</option>
             <option value="Clasicismo">Clasicismo</option>
             <option value="Romanticismo">Romanticismo</option>
             <option value="Contemperánea">Contemperánea</option>
