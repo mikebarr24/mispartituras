@@ -5,6 +5,9 @@
   width: 170px;
   flex-direction: column;
   margin: 0 auto;
+  @include tablet{
+    width: 300px;
+  }
   img {
     margin-bottom: 10px;
   }

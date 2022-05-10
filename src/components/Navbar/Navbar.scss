@@ -40,6 +40,9 @@
       font-size: 3rem;
       text-align: center;
       color: $white-color;
+      @include tablet{
+        font-size: 5rem;
+      }
     }
   }
   .burger-button {

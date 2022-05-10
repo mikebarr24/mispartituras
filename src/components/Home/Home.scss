@@ -8,25 +8,36 @@
   align-items: center;
   margin-top: $nav-height;
   padding-bottom: 10rem;
+  @include tablet {
+    justify-content: space-around;
+  }
   .hero-title {
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
+    @include tablet{ 
+      font-size: 4rem; 
+    }
   }
   .hero-sub-title {
     font-weight: 400;
     font-size: 22px;
-    line-height: 27px;
     text-align: center;
     margin-bottom: 30px;
+    @include tablet{
+      font-size: 3rem;
+    }
   }
   .buscar-button {
     margin: 0 auto;
-    font-size: 22px;
-    width: 237px;
-    height: 70px;
+    font-size: 2rem;
     border-radius: 50px;
     font-weight: 600;
     color: $primary-color;
+    padding: 1rem 2rem;
+    @include tablet {
+      font-size: 3rem;
+      padding: 2rem 3rem;
+    }
   }
 }

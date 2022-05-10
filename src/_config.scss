@@ -4,6 +4,21 @@ $white-color: #efefef;
 $logo-color: #08B9B8;
 $nav-height: 55px;
 
+
+/* Responsive Design */
+
+$mobile-l: 600px;
+$tablet: 768px;
+$laptop: 922px;
+$large: 1200px;
+
+@mixin tablet {
+  @media(min-width: $tablet) {
+    @content;
+  }
+}
+
+
 /* Mixins */
 
 @mixin transform-slide($time) {
@@ -31,6 +46,9 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   font-family: 'Montserrat', sans-serif;
+  @include tablet {
+    font-size: 1.2rem;
+  }
 }
 
 a {
@@ -53,4 +71,7 @@ button {
 .section-title {
   font-size: 2rem;
   margin: 0 auto;
+  @include tablet {
+    font-size: 4rem;
+  }
 }
