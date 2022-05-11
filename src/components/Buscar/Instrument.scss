@@ -9,13 +9,20 @@
     .filter-button, .back-button {
       width: 47%;
       font-size: 1rem;
+      @include tablet {
+        width: 40%;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+      }
+    }
+    @include tablet{
+      margin: 2rem 0;
     }
   }
   .filter-results-wrapper{
     background-color: $white-color;
     color: $primary-color;
     height: 60vh;
-    padding: 0rem;
     border-radius: 10px;
     border: 3px solid $logo-color;
     overflow-y: scroll;
@@ -47,7 +54,15 @@
       }
       .level-image{
         height: 20px;
+        @include tablet {
+          height: 30px;
+        }
+      }
+      @include tablet {
+        font-size: 1.3rem;
+        padding: 0.7rem;
       }
     }
+
   }
 }

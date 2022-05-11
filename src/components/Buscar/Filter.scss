@@ -26,6 +26,10 @@
       padding: 0.3rem;
       font-size: 1.3rem;
       color: $primary-color;
+      @include tablet {
+        padding: 0.6rem;
+        font-size: 1.7rem;
+      }
     }
   }
   .filter-button-wrapper{
@@ -35,6 +39,10 @@
       width: 40%;
       margin-left: 10px;
       font-size: 1.2rem;
+      @include tablet {
+        padding: 1rem 2rem;
+        font-size: 1.7rem;
+      }
     }
   }
 }

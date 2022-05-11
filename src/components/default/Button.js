@@ -8,8 +8,7 @@ function Button(props) {
     textColor = "#efefef";
   }
   const styles = {
-    padding: "0.5rem 1rem",
-    borderRadius: "20px",
+    borderRadius: "40px",
     border: "none",
     display: "flex",
     fontWeight: "600",

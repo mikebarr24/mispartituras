@@ -24,7 +24,7 @@ export default function Footer() {
         <h3 className="footer-contact-title">Contacto</h3>
         <p>Email: info@mispartituras.com</p>
       </div>
-      <SocialIcons color="#014652" size="2rem" className="footer-social" />
+      <SocialIcons color="#014652" className="footer-social" />
       <p className="copyright">
         © All Rights Reserved MisPartituras {new Date().getFullYear()}
       </p>

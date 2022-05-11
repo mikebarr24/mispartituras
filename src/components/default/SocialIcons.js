@@ -3,7 +3,6 @@ import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 function SocialIcons(props) {
   const STYLES = {
     color: props.color,
-    fontSize: props.size,
   };
   return (
     <div className={props.className} style={STYLES}>

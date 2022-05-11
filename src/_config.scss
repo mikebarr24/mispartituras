@@ -62,6 +62,9 @@ button {
 
 .container {
   padding: 10px 10px;
+  @include tablet{
+    padding: 20px;
+  }
 }
 
 .bold {

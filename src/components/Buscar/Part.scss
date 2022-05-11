@@ -13,8 +13,13 @@
     display: flex;
     justify-content: center;
     Button{
+      padding: 0.5rem 1rem;
       margin: 0 0.5rem;
       font-size: 1rem;
+      @include tablet{
+        padding: 1rem 2rem;
+        font-size: 1.5rem
+      }
     }
   }
   .part-close-button{
@@ -25,9 +30,16 @@
   h1 {
     font-size: 1.7rem;
     margin-bottom: 0.5rem;
+    @include tablet {
+      font-size: 2.5rem;
+    }
   }
   p{
     margin: 5px 0;
     font-size: 1.1rem;
+    @include tablet{
+      font-size: 1.7rem;
+      margin: 1rem; 
+    }
   }
 }
