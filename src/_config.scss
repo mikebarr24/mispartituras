@@ -1,9 +1,8 @@
 /* Variable */
 $primary-color: #014652;
 $white-color: #efefef;
-$logo-color: #08B9B8;
+$logo-color: #08b9b8;
 $nav-height: 55px;
-
 
 /* Responsive Design */
 
@@ -13,11 +12,15 @@ $laptop: 922px;
 $large: 1200px;
 
 @mixin tablet {
-  @media(min-width: $tablet) {
+  @media (min-width: $tablet) {
     @content;
   }
 }
-
+@mixin laptop {
+  @media (min-width: $laptop) {
+    @content;
+  }
+}
 
 /* Mixins */
 
@@ -41,11 +44,11 @@ body {
   background: url("./media/img/body-bockground.svg"), $primary-color;
   color: $white-color;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   @include tablet {
     font-size: 1.2rem;
   }
@@ -58,12 +61,19 @@ a {
 
 button {
   color: $primary-color;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .container {
   padding: 10px 10px;
-  @include tablet{
+  @include tablet {
     padding: 20px;
+  }
+  @include laptop {
+    padding: 30px;
   }
 }
 

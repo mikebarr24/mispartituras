@@ -3,31 +3,15 @@ import "./Navbar.scss";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const menuStyles = {
-    transform: "translateY(-100%)",
-  };
-  const [styles, setStyles] = React.useState(menuStyles);
   function handleClick() {
-    setStyles((state) => {
-      if (state.transform === "translateY(-100%)") {
-        return {
-          ...state,
-          transform: "translateY(0)",
-        };
-      } else {
-        return {
-          ...state,
-          transform: "translateY(-100%)",
-        };
-      }
-    });
+    document.querySelector(".nav-list").classList.toggle("active");
   }
   return (
     <header className="navbar">
       <Link className="navbar-logo" to="/mispartituras">
         MisPartituras
       </Link>
-      <nav className="nav-list" style={styles}>
+      <nav className="nav-list">
         <ul>
           <li className="nav-item">
             <Link to="/mispartituras" onClick={handleClick}>

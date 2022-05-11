@@ -15,8 +15,8 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
-    @include tablet{ 
-      font-size: 4rem; 
+    @include tablet {
+      font-size: 4rem;
     }
   }
   .hero-sub-title {
@@ -24,14 +24,14 @@
     font-size: 22px;
     text-align: center;
     margin-bottom: 30px;
-    @include tablet{
+    @include tablet {
       font-size: 3rem;
     }
   }
   .buscar-button {
     margin: 0 auto;
     font-size: 2rem;
-    border-radius: 50px;
+    border-radius: 100px;
     font-weight: 600;
     color: $primary-color;
     padding: 1rem 2rem;

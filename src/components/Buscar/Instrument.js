@@ -57,7 +57,7 @@ function Instrument() {
     if (filterValues.curso !== "") {
       localData = localData.filter((item) => item[6] === filterValues.curso);
     }
-    const partInfo = localData.map((item) => {
+    return localData.map((item) => {
       return (
         <div
           key={item[0]}
@@ -67,10 +67,10 @@ function Instrument() {
           <p className="results-composer-name">{item[1]}</p>
           <p className="results-piece-name">{item[2]}</p>
           <img src={levels[item[4]]} alt="" className="level-image" />
+          <Button name="Ver Mas" shade="dark" className="ver-mas-button" />
         </div>
       );
     });
-    return partInfo;
   }
 
   //click functions

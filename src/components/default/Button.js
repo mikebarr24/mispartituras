@@ -10,7 +10,6 @@ function Button(props) {
   const styles = {
     borderRadius: "40px",
     border: "none",
-    display: "flex",
     fontWeight: "600",
     alignItems: "center",
     justifyContent: "center",
